@@ -204,13 +204,13 @@ To make this work both ways, first open the pdf file with the external viewer.
 Forward: `--synctex-forward` flag
 
 Backward: Use `%{input}` and `%{line}` as placeholders.
-
+Based on the suggestion from the [discussion](https://unix.stackexchange.com/questions/671242/zathura-synctex-editor-command-cannot-open-some-editors-such-as-vs-code).
 ```json
 "latex-workshop.view.pdf.viewer": "external",
 "latex-workshop.view.pdf.external.viewer.command": "zathura",
 "latex-workshop.view.pdf.external.viewer.args": [
     "--synctex-editor-command",
-    "code --reuse-window -g \"%{input}:%{line}\"",
+    "code --no-sandbox --reuse-window -g \"%{input}:%{line}\"",
     "%PDF%"
 ],
 "latex-workshop.view.pdf.external.synctex.command": "zathura",
